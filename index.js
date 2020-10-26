@@ -14,5 +14,12 @@ const findAdjacent = (nodeName, vertices, edges) => {
     return findNode(name, vertices)
   }).filter( node => {
     return node.distance == null;
-  })
+  });
+}
+
+const markDistanceAndPredecessor = (predecessor, adjacentNodes) => {
+  adjacentNodes.map( node => {
+    node.distance = predecessor.distance + 1;
+    node.predecessor = predecessor;
+  });
 }
